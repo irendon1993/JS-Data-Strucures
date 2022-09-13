@@ -23,12 +23,19 @@ LinkedList.prototype.addToTail = function (value) {
   this.tail = newNode;
 };
 
-var myLL = new LinkedList();
+LinkedList.prototype.removeHead = function () {
+  if (!this.head) return null;
+  var val = this.head.value;
+  this.head = this.head.next;
+  if (this.head) this.head.prev = null;
+  else this.tail = null;
+  return val;
+};
 
-myLL.addToTail(10);
-myLL.addToTail(20);
-myLL.addToTail(30);
+var ll = new LinkedList();
 
-myLL.addToHead(100);
+ll.addToHead(1000);
+ll.addToHead(2000);
+ll.addToTail(3000);
 
-console.log(myLL.tail.prev);
+console.log(ll.removeHead());
