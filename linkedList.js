@@ -32,10 +32,22 @@ LinkedList.prototype.removeHead = function () {
   return val;
 };
 
+LinkedList.prototype.removeTail = function () {
+  if (!this.tail) return null;
+  var val = this.tail.value;
+  this.tail = this.tail.prev;
+  if (this.tail) this.tail.next = null;
+  else this.head = null;
+  return val;
+};
+
 var ll = new LinkedList();
 
-ll.addToHead(1000);
-ll.addToHead(2000);
-ll.addToTail(3000);
+ll.addToHead("one");
+ll.addToHead("two");
+ll.addToHead("three");
+console.log(ll.removeTail());
 
-console.log(ll.removeHead());
+LinkedList.prototype.search = function(searchValue) {
+  var currentNode = 
+}
